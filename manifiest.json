@@ -1,0 +1,14 @@
+{
+  "name": "xapt-management",
+  "version": "1.0",
+  "arch": "all",
+  "homepage": "https://github.com/ivam3/xapt-management",
+  "maintainer": "Ivam3 <https://t.me/Ivam3_Bot>",
+  "depends": ["x11-repo, xwayland, python, python-tkinter"],
+  "suggests": ["i-haklab"],
+  "description": "Graphical interface for Advance Package Tool (APT) written in python.",
+  "files" :{
+    "xapt-installer": "bin/xapt-installer",
+    "xapt": "bin/xapt"
+  }
+}

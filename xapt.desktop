@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Xapt
+GenericName=Xapt Mannagment
+Comment=GUI frontend for APT Mannagment
+Comment[es]=Interfaz grafica del Administrador de paquetes APT
+Version=1.0
+Exec=xapt
+Icon=/data/data/com.termux/files/usr/share/applications/xapt/img/xapt.png
+Terminal=false
+Type=Application
+Categories=System;Utility;
+X-Desktop-File-Install-Version=1.0

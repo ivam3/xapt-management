@@ -1,0 +1,7 @@
+#!/data/data/com.termux/files/usr/bin/bash
+if [[ -d ${PREFIX}/share/applications/xapt ]]; then
+  rm -rf ${PREFIX}/share/applications/xapt
+fi
+python -m pip --no-color --quiet uninstall -r ${PREFIX}/share/applications/xapt/requirements.txt; 
+
+####::: REPORT ISSUES AT https://t.me/Ivam3_Bot :::####
