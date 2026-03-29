@@ -1,7 +1,7 @@
 # xapt-management
 X-Desktop graphical interface for advance package tool(APT) written in python
 
-![image](img/Screenshot_20220908-215716_TermuxWayland.jpg)
+![image](.deb/img/Screenshot_20220908-215716_TermuxWayland.jpg)
 
 ## Requirements.
 
@@ -44,4 +44,4 @@ apt install xapt-management
 
 GNU
 
-##### Follow me on [Socials Network](https://wlo.link/@Ivam3)
+##### Follow me on [Socials Network](https://ivam3.github.io/redes)

@@ -1,0 +1,34 @@
+#!/data/data/com.termux/files/usr/bin/bash
+IFS=$'\n\t'
+echo "Cloning repository ..."
+git clone --quiet https://github.com/ivam3/xapt-management ${PREFIX}/share/applications/xapt
+[[ -d ${PREFIX}/share/applications/xapt ]] && {
+  echo "Installing requirements ...";
+  rm -rf ${PREFIX}/share/applications/xapt/.deb
+  chmod 751 -R ${PREFIX}/share/applications/xapt
+  python3 -m pip --no-color --quiet --no-cache-dir install -r \
+      ${PREFIX}/share/applications/xapt/requirements.txt
+  echo "[*] xapt-management installation finished.";
+  echo "[*] Run 'xapt' to execute it.";
+} || {
+  echo -en "\e[31mE:\e[0m xapt-management directory missing ... \e[33mAborting.\e[0m\n";
+  exit 1;
+}
+# ==============================
+# INSTALLING SCRIPT FIXER
+# ==============================
+echo "[*] Installing script fixer..."
+fixerURL="https://raw.githubusercontent.com/ivam3/i-Haklab/master/.deb/home/.local/bin/fixer"
+if curl -fsSL "$fixerURL" -o /data/data/com.termux/files/usr/bin/fixer; then
+    chmod 750 /data/data/com.termux/files/usr/bin/fixer
+    echo "[➡] Run 'fixer' to fix any posible issue."
+else
+    echo "[!] Error downloading fixer."
+fi
+
+# ==============================
+# FINALS MESSAGES
+# ==============================
+echo "[📢] Help: going to https://t.me/Ivam3_Bot."
+echo "[💡] @Ivam3: thank you for use my package."
+####::: REPORT ISSUES AT https://t.me/Ivam3_Bot :::####
