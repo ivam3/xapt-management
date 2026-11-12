@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
-if [[ -d ${PREFIX}/share/applications/xapt ]]; then
-  rm -rf ${PREFIX}/share/applications/xapt
+APP="${PREFIX}/share/applications/xapt"
+if [[ -f "$APP/requirements.txt" ]]; then
+  python -m pip --no-color --quiet uninstall -r "$APP/requirements.txt" >/dev/null 2>&1 || true
 fi
-python -m pip --no-color --quiet uninstall -r ${PREFIX}/share/applications/xapt/requirements.txt; 
-
+rm -rf "$APP"
 ####::: REPORT ISSUES AT https://t.me/Ivam3_Bot :::####

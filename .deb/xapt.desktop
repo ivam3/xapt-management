@@ -1,9 +1,9 @@
 [Desktop Entry]
 Name=Xapt
-GenericName=Xapt Mannagment
-Comment=GUI frontend for APT Mannagment
+GenericName=APT package manager
+Comment=Graphical frontend for APT package management
 Comment[es]=Interfaz grafica del Administrador de paquetes APT
-Version=1.0
+Version=2.0
 Exec=xapt
 Icon=/data/data/com.termux/files/usr/share/applications/xapt/img/xapt.png
 Terminal=false

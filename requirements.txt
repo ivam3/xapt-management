@@ -1,1 +1,2 @@
-
+# Xapt uses only the Python standard library and Tkinter.
+# Tkinter is provided by the Termux package python-tkinter.

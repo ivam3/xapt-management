@@ -1,15 +1,23 @@
 #!/data/data/com.termux/files/usr/bin/bash
 IFS=$'\n\t'
-echo "Cloning repository ..."
-git clone --quiet https://github.com/ivam3/xapt-management ${PREFIX}/share/applications/xapt
-[[ -d ${PREFIX}/share/applications/xapt ]] && {
-  echo "Installing requirements ..."
-  for i in manifiest.json postinst postrm preinst prerm xapt-installer;do rm $i;done
-  chmod 751 -R ${PREFIX}/share/applications/xapt
-  python -m pip --no-color --quiet --no-cache-dir install -r ${PREFIX}/share/applications/xapt/requirements.txt
-} || {
-  echo -en "\e[31mE:\e[0m xapt-management directory missing ... \e[33mAborting.\e[0m\n";
-  exit 1;
-}
+APP="${PREFIX}/share/applications/xapt"
+
+echo "Installing xapt-management from source ..."
+rm -rf "$APP"
+if ! git clone --quiet https://github.com/ivam3/xapt-management "$APP"; then
+  echo -e "\e[31mE:\e[0m xapt-management clone failed ... \e[33mAborting.\e[0m"
+  exit 1
+fi
+
+if [[ -d "$APP/.deb/img" ]]; then
+  cp -a "$APP/.deb/img" "$APP/img"
+fi
+rm -rf "$APP/.deb"
+chmod 751 -R "$APP"
+
+echo "Installing Python requirements ..."
+python -m pip --no-color --quiet --no-cache-dir install -r "$APP/requirements.txt" || true
+
+echo "Run 'xapt' to launch it."
 exit 0
 ####::: REPORT ISSUES AT https://t.me/Ivam3_Bot :::####
